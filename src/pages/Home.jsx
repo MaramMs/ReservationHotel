@@ -14,8 +14,8 @@ const Home = () => {
         <PropertyList />
         <h2 className='homeTitle'> Homes guests love </h2>
           <FeaturedList />
-          <Mail />
-          <Footer />
+           <Mail />
+           <Footer />
       </div>
     </Div>
   )
@@ -28,6 +28,7 @@ const Div = styled.div`
     align-items: center;
     gap: 30px;
     margin-top: 50px;
+
     .homeTitle{
       width: 1024px;
       font-size: 20px;
