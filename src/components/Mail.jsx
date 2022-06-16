@@ -20,11 +20,11 @@ const Mail = () => {
 
 const Div = styled.div`
   .mail {
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
     background-color: #003580;
-    width: 100%;
     padding: 50px;
     margin-top: 50px;
     color: #fff;
@@ -34,7 +34,7 @@ const Div = styled.div`
       font-size: 2rem;
     }
 
-    .mailInput > input {
+    .mailInput>input {
       padding: 22px;
       margin-right: 20px;
       width: 300px;
@@ -42,7 +42,7 @@ const Div = styled.div`
       border: none;
       outline: none;
     }
-    .mailInput > button {
+    .mailInput>button {
       border: none;
       padding: 3px 10px;
       background-color: #0071bc;

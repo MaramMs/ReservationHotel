@@ -1,5 +1,5 @@
 import React from 'react'
-import {Navbar,Header,Features,PropertyList,FeaturedList, Mail } from '../components'
+import {Navbar,Header,Features,PropertyList,FeaturedList, Mail, Footer } from '../components'
 import styled from 'styled-components'
 
 
@@ -14,8 +14,9 @@ const Home = () => {
         <PropertyList />
         <h2 className='homeTitle'> Homes guests love </h2>
           <FeaturedList />
+           <Mail />
+           <Footer />
       </div>
-      <Mail />
     </Div>
   )
 }
@@ -27,6 +28,7 @@ const Div = styled.div`
     align-items: center;
     gap: 30px;
     margin-top: 50px;
+
     .homeTitle{
       width: 1024px;
       font-size: 20px;
