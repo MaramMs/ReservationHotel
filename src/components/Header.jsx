@@ -8,7 +8,7 @@ import { AiOutlineCar } from "react-icons/ai";
 import { BsPersonPlus } from "react-icons/bs";
 import styled from "styled-components";
 
-const Header = () => {
+const Header = ({type}) => {
   const [openDate, setOpenDate] = useState(false);
   const [date, setDate] = useState([
     {
@@ -34,7 +34,7 @@ const Header = () => {
   return (
     <Div>
       <div className="header">
-        <div className="headerContainer">
+        <div className={type === 'list' ? 'headerContainer list' : 'headerContainer'}>
           <div className="headerList">
             <div className="headerListItem active">
               <FaBed />
@@ -58,7 +58,9 @@ const Header = () => {
             </div>
           </div>
 
-          <h1 className="headerTitle">
+       { type !== 'list' && 
+          <>
+           <h1 className="headerTitle">
             {" "}
             A lifetime of discounts? It's Genius.
           </h1>
@@ -186,6 +188,9 @@ const Header = () => {
               <button className="searchButton"> Search</button>
             </div>
           </div>
+        
+        </>
+       }
         </div>
       </div>
     </Div>
@@ -199,12 +204,13 @@ const Div = styled.div`
     justify-content: center;
     color: white;
     position: relative;
-
+    .headerContainer.list {
+      margin: 20px 0px 40px 0px;
+    }
     .headerContainer {
       width: 100%;
       max-width: 1024px;
       margin: 20px 0px 100px 0px;
-
       .headerList {
         display: flex;
         gap: 40px;
@@ -268,6 +274,7 @@ const Div = styled.div`
           .date {
             position: absolute;
             top: 50px;
+            z-index: 2;
           }
 
           .options {
@@ -277,6 +284,7 @@ const Div = styled.div`
             top: 50px;
             color: gray;
             border-radius: 5px;
+            z-index: 2;
             padding: 10px;
             .optionsItem {
               width: 200px;
