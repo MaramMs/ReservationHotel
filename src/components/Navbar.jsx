@@ -35,16 +35,16 @@ const Div = styled.div`
       width: 100%;
       max-width: 1024px;
       color: white;
-      padding:20px;
+      padding:20px 0px;
 
       .logo{
         font-size: 1.5rem;
       }
     }
      .navButton{
+      border: none;
       padding: 5px 10px;
       margin-left: 20px;
-      border-radius: 5px;
       transition:all 0.5s ease-in-out;
       color:#003580;
       cursor: pointer;
