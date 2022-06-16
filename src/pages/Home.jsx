@@ -1,5 +1,5 @@
 import React from 'react'
-import {Navbar,Header,Features,PropertyList,FeaturedList } from '../components'
+import {Navbar,Header,Features,PropertyList,FeaturedList, Mail } from '../components'
 import styled from 'styled-components'
 
 
@@ -14,8 +14,8 @@ const Home = () => {
         <PropertyList />
         <h2 className='homeTitle'> Homes guests love </h2>
           <FeaturedList />
-
       </div>
+      <Mail />
     </Div>
   )
 }
