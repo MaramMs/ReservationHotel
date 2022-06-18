@@ -1,7 +1,9 @@
 import React from "react";
 import { Footer, Header, Mail, Navbar } from "../components";
 import styled from "styled-components";
-import { GrLocation } from "react-icons/gr";
+import { GrLocation, GrLinkNext, GrLinkPrevious } from "react-icons/gr";
+import { RiCloseCircleLine } from "react-icons/ri";
+import { useState } from "react";
 const photos = [
   {
     src: "https://cf.bstatic.com/xdata/images/hotel/max1280x900/261707778.jpg?k=56ba0babbcbbfeb3d3e911728831dcbc390ed2cb16c51d88159f82bf751d04c6&o=&hp=1",
@@ -22,12 +24,48 @@ const photos = [
     src: "https://cf.bstatic.com/xdata/images/hotel/max1280x900/261707389.jpg?k=52156673f9eb6d5d99d3eed9386491a0465ce6f3b995f005ac71abc192dd5827&o=&hp=1",
   },
 ];
+
 const Hotel = () => {
+  const [silderNumber, setSilderNumber] = useState(0);
+  const [openSilder, setOpenSlider] = useState(false);
+  const handleSilder = (i) => {
+    setSilderNumber(i)
+    setOpenSlider(true);
+  };
+
+  const handleMove =(direction) =>{
+    let newSilderNumber;
+    if(direction ==='l'){
+      newSilderNumber = silderNumber===0 ? 5 : silderNumber-1;
+    } else{
+      newSilderNumber = silderNumber===5 ? 0 : silderNumber+1;
+
+    }
+    setSilderNumber(newSilderNumber);
+  }
   return (
     <Div>
       <Navbar />
       <Header type="list" />
       <div className="hotelContainer">
+        {openSilder && (
+          <div className="silder">
+            <RiCloseCircleLine
+              className="close"
+              onClick={() => setOpenSlider(!openSilder)}
+            />
+            <GrLinkPrevious className="arrow" onClick={() => handleMove('l')}/>
+            <div className="silderWrapper">
+              <img
+                src={photos[silderNumber].src}
+                alt=""
+                className="silderImage"
+              />
+            </div>
+            <GrLinkNext className="arrow" onClick={()=>handleMove('r')} />
+          </div>
+        )}
+
         <div className="hotelWrapper">
           <button className="bookNow">Reserve or Book Now!</button>
           <h1>Grand Hotel</h1>
@@ -42,9 +80,15 @@ const Hotel = () => {
             Book a stay over $114 at this property and get a free airport taxi
           </span>
           <div className="hotelImage">
-            {photos.map((photo) => (
-              <div className="Images">
-                <img src={photo.src} alt="" className="hotelImge" />
+            {photos.map((photo, index) => (
+              <div className="Images" key={index}>
+                <img
+                  src={photo.src}
+                  alt=""
+                  className="hotelImge"
+                  onClick={() => handleSilder(index)}
+               
+                />
               </div>
             ))}
           </div>
@@ -95,7 +139,51 @@ const Div = styled.div`
     flex-direction: column;
     align-items: center;
     margin-top: 20px;
+    .silder {
+      position: sticky;
+      top: 0%;
+      left: 0%;
+      width: 100%;
+      height: 100vh;
+      background-color: rgba(0,0,0,0.0613);
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      
+    
 
+      .close {
+        position: absolute;
+        top: 20px;
+        right: 0px;
+        font-size: 40px;
+        color: lightgray;
+        cursor: pointer;
+      }
+      .silderWrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        height: 100%;
+
+       
+      }
+      .silderImage {
+        width: 80%;
+        height: 80vh;
+      }
+      .arrow {
+        font-size: 2rem;
+        cursor: pointer;
+        background-color: lightgray;
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        padding: 10px;
+        color: gray;
+      }
+    }
     .hotelWrapper {
       position: relative;
       width: 100%;
