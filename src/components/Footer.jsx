@@ -89,6 +89,9 @@ const Div = styled.div`
     width: 100%;
     width: 1024px;
     font-size: 14px;
+    align-items: center;
+    margin:50px auto 0px auto;
+    
     .footerList{
         width: 100%;
         display: flex;
