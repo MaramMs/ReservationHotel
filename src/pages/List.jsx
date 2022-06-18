@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
-import { Navbar, Header } from "../components";
+import { Navbar, Header, SearchList } from "../components";
 import styled from "styled-components";
 import { format } from "date-fns";
 import { DateRange } from "react-date-range";
@@ -77,7 +77,20 @@ const List = () => {
 
             <button className="searchButton">Search</button>
           </div>
-          <div className="listResult">result</div>
+          <div className="listResult">
+            <SearchList />
+
+            <SearchList />
+            <SearchList />
+            <SearchList />
+            <SearchList />
+            <SearchList />
+            <SearchList />
+            <SearchList />
+            <SearchList />
+            <SearchList />
+            <SearchList />
+          </div>
         </div>
       </div>
     </Div>
@@ -103,6 +116,7 @@ const Div = styled.div`
         border-radius: 5px;
         position: sticky;
         top: 10px;
+        height: max-content;
 
         .searchTitle {
           font-size: 20px;

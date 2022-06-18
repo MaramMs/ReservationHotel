@@ -4,6 +4,7 @@ import Features from './Features'
 import PropertyList from './PropertyList'
 import FeaturedList from './FeaturedList'
 import Mail from './Mail'
+import SearchList from './SearchList'
 import Footer from './Footer'
 export {
     Navbar,
@@ -12,5 +13,6 @@ export {
     PropertyList,
     FeaturedList,
     Mail,
-    Footer
+    Footer,
+    SearchList
 }
